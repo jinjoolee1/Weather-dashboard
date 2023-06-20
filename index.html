@@ -2,87 +2,127 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="Assets\Css\style.css" />
     <title>Weather Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+      integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.structure.min.css"
+      integrity="sha512-oM24YOsgj1yCDHwW895ZtK7zoDQgscnwkCLXcPUNsTRwoW1T1nDIuwkZq/O6oLYjpuz4DfEDr02Pguu68r4/3w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
-
   <body>
-    <header
-      class="container-fluid text-center text-white bg-dark p-2 weather-header"
-    >
-      <h1>Weather Dashboard</h1>
+    <header>
+      <h1 class="text-center m-4">Weather Dashboard</h1>
     </header>
-
-    <!-- max-width for ultra wide resolutions -->
-    <div class="container-fluid" style="max-width: 1400px">
-      <div class="row">
-        <aside class="col-lg-3 pb-3">
-          <h2 id="form-heading" class="mt-1 h3 form-label">
-            Search for a City:
-          </h2>
-          <form id="search-form" class="form">
-            <div class="form-inline form-group">
-              <div class="input-group">
-                <input
-                  class="form-input weather-search"
-                  type="text"
-                  id="search-input"
-                  placeholder="San Diego"
-                  aria-labelledby="form-heading"
-                  aria-controls="today forecast"
-                />
-                <div class="input-group-append">
-                  <button
-                    type="submit"
-                    class="btn search-button"
-                    id="search-button"
-                    aria-label="submit search"
-                  >
-                    Search
-                  </button>
-                  <hr class="hr weather-hr" />
-                </div>
-              </div>
-            </div>
-          </form>
-          <div class="list-group" id="history"></div>
-        </aside>
-
-        <div class="col-lg-9 pb-3">
-          <section
-            id="today"
-            class="mt-3"
-            role="region"
-            aria-live="polite"
-          ></section>
-          <section
-            id="forecast"
-            class="row mt-3"
-            role="region"
-            aria-live="polite"
-          ></section>
+    <main class="row">
+      <div class="city-container m-4 col-10 col-md-2">
+        <form class="city-search-container">
+          <h3 class="">Search For a City:</h3>
+          <input
+            class="mb-3 w-100"
+            id="search-input"
+            type="text"
+            placeholder="Enter City Name"
+          />
+          <button class="mb-3 w-100" id="search-btn" type="submit">
+            Search
+          </button>
+        </form>
+        <div class="search-history-container col-4 w-100 pt-3"></div>
+      </div>
+      <div class="weather-container col-9 ms-5 ms-md-0">
+        <div class="current-weather col-1 w-100">
+          <h3 class="current-city">City Name</h3>
+          <p class="current-temp">Temp:</p>
+          <p class="current-wind">Wind:</p>
+          <p class="current-humidity">Humidity:</p>
+          <p class="current-uv">UV Index:</p>
+        </div>
+        <h4 class="mt-2 mb-0">5-Day Forcast:</h4>
+        <div class="forcast-container row ms-0">
+          <div
+            class="forcast col-lg-2 row-md card-body me-3 mb-2 pt-1 ps-1 pb-4"
+          >
+            <p class="forcast-date-1 card-title">Date:</p>
+            <p class="emoji card-text">🌦️</p>
+            <p class="day-1-temp card-text">Temp:</p>
+            <p class="day-1-wind card-text">Wind:</p>
+            <p class="day-1-humidity card-text">Humidity:</p>
+          </div>
+          <div
+            class="forcast col-lg-2 row-md card-body me-3 mb-2 pt-1 ps-1 pb-4"
+          >
+            <p class="forcast-date-2 card-title">Date:</p>
+            <p class="emoji card-text">🌦️</p>
+            <p class="day-2-temp card-text">Temp:</p>
+            <p class="day-2-wind card-text">Wind:</p>
+            <p class="day-2-humidity card-text">Humidity:</p>
+          </div>
+          <div
+            class="forcast col-lg-2 row-md card-body me-3 mb-2 pt-1 ps-1 pb-4"
+          >
+            <p class="forcast-date-3 card-title">Date:</p>
+            <p class="emoji card-text">🌦️</p>
+            <p class="day-3-temp card-text">Temp:</p>
+            <p class="day-3-wind card-text">Wind:</p>
+            <p class="day-3-humidity card-text">Humidity:</p>
+          </div>
+          <div
+            class="forcast col-lg-2 row-md card-body me-3 mb-2 pt-1 ps-1 pb-4"
+          >
+            <p class="forcast-date-4 card-title">Date:</p>
+            <p class="emoji card-text">🌦️</p>
+            <p class="day-4-temp card-text">Temp:</p>
+            <p class="day-4-wind card-text">Wind:</p>
+            <p class="day-4-humidity card-text">Humidity:</p>
+          </div>
+          <div
+            class="forcast col-lg-2 row-md card-body me-3 mb-2 pt-1 ps-1 pb-4"
+          >
+            <p class="forcast-date-5 card-title">Date:</p>
+            <p class="emoji card-text">🌦️</p>
+            <p class="day-5-temp card-text">Temp:</p>
+            <p class="day-5-wind card-text">Wind:</p>
+            <p class="day-5-humidity card-text">Humidity:</p>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- use day.js to easily format dates -->
+    </main>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"
-      integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg=="
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
-    <script 
-      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/utc.min.js" 
-      integrity="sha512-m00bfmYnAl3plEBlQfeQUhw/U2uvmw29V2+jxSWpAjankMWS+zAsjezbKWDEJNXqWq9o9qQZSOiA2RKDpa4D5w==" 
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
       crossorigin="anonymous"
-    ></script>
-    <script 
-      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/timezone.min.js" 
-      integrity="sha512-pslqxxHAYPCxaSeFSmXXxDkLejD5dbFVC66aiVq0z4v7VTJBU+wqcG1OpNh4p3MjS2D6NCwz/H2QmSc7dXxryg==" 
-      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
     <script src="Assets\Javascript\script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
